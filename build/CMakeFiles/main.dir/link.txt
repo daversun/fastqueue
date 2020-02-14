@@ -1,0 +1,1 @@
+/usr/bin/c++       CMakeFiles/main.dir/src/main.o CMakeFiles/main.dir/src/FastQueue.o CMakeFiles/main.dir/src/Bucket.o  -o main -rdynamic -lpthread 

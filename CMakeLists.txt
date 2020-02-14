@@ -1,0 +1,5 @@
+add_definitions(-std=c++11)
+set(SRC ./src/main.cpp ./src/FastQueue.cpp ./src/Bucket.cpp)
+include_directories(./head)
+add_executable(main ${SRC})
+TARGET_LINK_LIBRARIES(main libpthread.so)
