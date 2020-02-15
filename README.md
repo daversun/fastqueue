@@ -9,7 +9,7 @@
 
 # Sollution
 ## To solve the problems above, implement a high concurrence and throught <u>fastqueue</u>
-![FastQueue](https://images.gitee.com/uploads/images/2020/0215/143008_fdf0a7c2_5064364.png)
+![FastQueue](https://images.gitee.com/uploads/images/2020/0215/155747_b3fabb29_5064364.png)
 ## Main Idea
 ```
 1. Using large page memory to reduce the times of memory access  
