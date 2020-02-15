@@ -36,16 +36,6 @@ iostream
 stdint.h
 -
 
-/home/fastqueue/src/FastQueue.cpp
-fastqueue.h
--
-sys/mman.h
--
-unistd.h
--
-stdlib.h
--
-
 /home/fastqueue/src/main.cpp
 fastqueue.h
 -

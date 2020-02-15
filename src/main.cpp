@@ -2,7 +2,9 @@
 #include <chrono>
 #include <numeric>
 #include <unistd.h>
- #include <signal.h>
+#include <signal.h>
+#define DATA_LEN 64
+uint8_t data[DATA_LEN] = {"hello_world"};
 uint32_t consumer_num = 6, producer_num = 6, p[64] = {0}, c[64] = {0};
 FastQueue* fastqueue = NULL;
 std::chrono::steady_clock::time_point start;
@@ -11,10 +13,11 @@ void sigInt(int signo){
     auto total_time = std::chrono::duration<double>(std::chrono::steady_clock::now() - start).count(); 
     uint64_t total_producer_objects = std::accumulate(p, p + producer_num, 0);
     uint64_t total_consumer_objects = std::accumulate(c, c + consumer_num, 0);
-    uint64_t data_bytes = producer_num * total_producer_objects * sizeof(Object) * sizeof(pthread_self());
+    uint64_t data_bytes = producer_num * total_producer_objects * sizeof(Object) * DATA_LEN;
    
     uint32_t page_size = sysconf(_SC_PAGESIZE);
     std::cout<<"----------------------------------------------------------------------------------------------------------------------------"<< std::endl; 
+    std::cout<<"producer thread num:"<< producer_num <<" consumer thread num: " << consumer_num << std::endl << std::endl;
     std::cout<<"total_time: " << total_time << " seconds\n" << std::endl;
     std::cout<<"total_producer_num: " << total_producer_objects << " objects\n" << std::endl;
     std::cout<<"toatl_consumer_num: " << total_consumer_objects << " objects\n" << std::endl;
@@ -29,22 +32,11 @@ void sigInt(int signo){
 }
 
 void* producer_fun(void* params){
-    uint32_t cnt = 0;
-    uint8_t data[128];
-    uint64_t tid = pthread_self();
-    uint64_t* num = (uint64_t*)params;
-    do{
-        data[cnt++] = tid % 10 + '0';
-        tid/= 10;
-    }while(tid);
 
-    for(int i = 0, k = cnt - 1; i < k; i++, k--){
-        std::swap(data[i], data[k]);
-    }
-
-    uint64_t index = 0;
     Bucket* bucket = fastqueue->enqueue();
-    Object obj(data, cnt);
+    Object obj(data, (int)DATA_LEN);
+    
+    uint64_t* num = (uint64_t*)params;
     bool flag;
 
     while(true){
@@ -54,7 +46,7 @@ void* producer_fun(void* params){
             bucket = fastqueue->enqueue();
             continue;
         }
-        (*num)++;
+	    (*num)++;
     }
    
 }
