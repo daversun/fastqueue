@@ -37,7 +37,7 @@ Toatl_consumer_num: 14579091 objects
 
 Page_size:4096 bytes
 
-Object_size:24 bytes
+Object_size:80 bytes
 
 Total_size:87355207680 bytes
 
