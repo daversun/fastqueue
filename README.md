@@ -19,7 +19,7 @@
     we use two kind lock: global lock and bucket lock. If we want to get a bucket, we first lock the global then lock the bucket. Once we get the bucket, we can insert many objects in the queue so that implement parallelism
 ```
 
-## Performace Test
+## Performance Test
 Now I just Test Some data where implement the thread bind core. In next time, I will gradually update the result
 
 ```
