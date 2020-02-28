@@ -20,7 +20,7 @@
 ```
 
 ## Performance Test
-Now I just test some data where not implement the thread bind core. Next time, I will gradually update the result
+Now I just test some data where not implement the thread tp bind core. Next time, I will gradually update the result
 
 ```
 Environment: 
