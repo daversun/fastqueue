@@ -4,11 +4,11 @@
 ## Single thread queue has two disadvantages:
 ```
 1. If we want to support multi-thread, we need a lot of cost due to mutex
-2. Even though a single queue support multi-thread, it can't support high concurrence and throught
+2. Even though a single queue support multi-thread, it can't support high throught and parallelism
 ```
 
 # Sollution
-## To solve the problems above, implement a high concurrence and throught <u>fastqueue</u>
+## To solve the problems above, implement a high throught and parallelism <u>fastqueue</u>
 ![FastQueue](https://images.gitee.com/uploads/images/2020/0215/155747_b3fabb29_5064364.png)
 ## Main Idea
 ```
