@@ -22,7 +22,7 @@ void sigInt(int signo){
     std::cout<<"total_producer_num: " << total_producer_objects << " objects\n" << std::endl;
     std::cout<<"toatl_consumer_num: " << total_consumer_objects << " objects\n" << std::endl;
     std::cout<<"page_size:" << page_size << " bytes\n" << std::endl;
-    std::cout<<"object_size:" << sizeof(Object)  + sizeof(pthread_self()) << " bytes\n" << std::endl;
+    std::cout<<"object_size:" << sizeof(Object)  + DATA_LEN << " bytes\n" << std::endl;
     std::cout<<"total_size:" << data_bytes << " bytes\n" << std::endl;
     
     std::cout<<"ops:" << (total_producer_objects + total_consumer_objects) * 1.0 / total_time << " operations/second\n" <<std::endl;
